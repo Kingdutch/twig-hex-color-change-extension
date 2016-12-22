@@ -47,6 +47,25 @@ class HexColorChangeExtension extends Twig_Extension
         return "#{$out}";
     }
 
+
+    /**
+     * @param string $hexcode
+     * @return string
+     */
+    public function shade($hexcode, $percentage)
+    {
+        if (!preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i', $hexcode, $parts)) {
+            die("Not a value color");
+        }
+        $out = ""; // Prepare to fill with the results
+        for ($i = 1; $i <= 3; $i++) {
+            $parts[$i] = hexdec($parts[$i]);
+            $parts[$i] = round($parts[$i] * $percentage / 100);
+            $out .= str_pad(dechex($parts[$i]), 2, '0', STR_PAD_LEFT);
+        }
+        return "#{$out}";
+    }
+
     /**
      * @return array
      */
@@ -55,6 +74,7 @@ class HexColorChangeExtension extends Twig_Extension
         return [
             new Twig_SimpleFilter('darken', [$this, 'darken']),
             new Twig_SimpleFilter('lighten', [$this, 'lighten']),
+            new Twig_SimpleFilter('shade', [$this, 'shade']),
         ];
     }
 
