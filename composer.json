@@ -1,0 +1,27 @@
+{
+  "name": "mattgxyz/twig-hex-color-change-extension",
+  "description": "Twig extension to lighten or darken a given hex value by 20%, or to shade it by a given %",
+  "keywords": ["templating", "twig", "age", "date"],
+  "license": "MIT",
+  "homepage": "http://github.com/mattgxyz/twig-hex-color-change-extension#README",
+  "authors": [
+    {
+      "name": "Matt Garrett",
+      "email": "me@mattg.xyz",
+      "homepage": "http://mattg.xyz"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/mattgxyz/twig-hex-color-change-extension/issues",
+    "source": "https://github.com/mattgxyz/twig-hex-color-change-extension"
+  },
+  "require": {
+    "twig/twig": ">=1.12",
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "MattgXyz\\Twig": "src/"
+    }
+  }
+}
