@@ -18,7 +18,7 @@ class HexColorChangeExtension extends Twig_Extension
     public function darken($hexcode)
     {
         if (!preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i', $hexcode, $parts)) {
-            die("Not a value color");
+            throw new Exception("Not a value color");
         }
         $out = ""; // Prepare to fill with the results
         for ($i = 1; $i <= 3; $i++) {
@@ -36,7 +36,7 @@ class HexColorChangeExtension extends Twig_Extension
     public function lighten($hexcode)
     {
         if (!preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i', $hexcode, $parts)) {
-            die("Not a value color");
+            throw new Exception("Not a value color");
         }
         $out = ""; // Prepare to fill with the results
         for ($i = 1; $i <= 3; $i++) {
@@ -55,7 +55,7 @@ class HexColorChangeExtension extends Twig_Extension
     public function shade($hexcode, $percentage)
     {
         if (!preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i', $hexcode, $parts)) {
-            die("Not a value color");
+            throw new Exception("Not a value color");
         }
         $out = ""; // Prepare to fill with the results
         for ($i = 1; $i <= 3; $i++) {
